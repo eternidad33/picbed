@@ -1,12 +1,281 @@
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport"
-          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>图片浏览器</title>
-</head>
-<body>
-<img src="img/123456.jpg" alt="" width="50%" height="50%">
+<!DOCTYPE html>
+<html lang="en">
 
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+  <script src="https://cdn.bootcdn.net/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script src="https://cdn.bootcdn.net/ajax/libs/magnific-popup.js/1.1.0/jquery.magnific-popup.min.js"></script>
+  <link href="https://cdn.bootcdn.net/ajax/libs/magnific-popup.js/1.1.0/magnific-popup.min.css" rel="stylesheet" />
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      font-family: "montserrat", sans-serif;
+      box-sizing: border-box;
+    }
+
+    .gallery-section {
+      width: 100%;
+      padding: 60px 0;
+      background: #f1f1f1;
+    }
+
+    .inner-width {
+      width: 100%;
+      max-width: 1200px;
+      margin: auto;
+      padding: 0 20px;
+    }
+
+    .gallery-section h1 {
+      text-align: center;
+      font-family: '隶书';
+      color: #333;
+    }
+
+    .gallery-section p {
+      text-align: center;
+      color: #333;
+      margin: 30px auto;
+    }
+
+    .border {
+      width: 640px;
+      height: 4px;
+      background: #f00;
+      margin: 30px auto;
+    }
+
+    .gallery-section .gallery {
+      display: flex;
+      flex-wrap: wrap-reverse;
+      justify-content: center;
+    }
+
+    .gallery-section .image {
+      flex: 25%;
+      overflow: hidden;
+      cursor: pointer;
+    }
+
+    .gallery-section .image img {
+      width: 100%;
+      height: 100%;
+      transition: 0.4s;
+    }
+
+    .gallery-section .image:hover img {
+      transform: scale(1.4) rotate(15deg);
+    }
+  </style>
+  <title>Document</title>
+</head>
+
+<body>
+  <div class="gallery-section">
+    <div class="inner-width">
+      <h1>我的图床</h1>
+      <p>我的博客中用到的一些图片</p>
+      <div class="border"></div>
+      <div class="gallery">
+        <!-- <a href="img/(1).jpg" class="image">
+          <img src="img/(1).jpg" alt="" />
+        </a> -->
+      </div>
+    </div>
+  </div>
+  <script>
+    var list1 = [
+      "profile/2020324.png",
+      "profile/CSDN.jpg",
+      "profile/CSDN小号.jpg",
+      "profile/GitHub.jpg",
+      "profile/ow.png",
+      "profile/qq.jpeg,profile/qq.jpg",
+      "profile/qq34966555347.jpg",
+      "profile/qq卫庄.jpg",
+      "profile/uplay.jpg",
+      "profile/weibo.jpeg,profile/世界名画1.png",
+      "profile/世界名画2.png",
+      "profile/世界名画3.png",
+      "profile/兰陵王.png",
+      "profile/关公.jpeg,profile/刀马.png",
+      "profile/刀马1.png",
+      "profile/刺客.jpeg,profile/刺客信条.jpeg,profile/卫庄.jpg",
+      "profile/只狼鬼武士.jpg",
+      "profile/女帝1.jpg",
+      "profile/女帝2.jpg",
+      "profile/女帝3.jpg",
+      "profile/小狐狸.png",
+      "profile/无生之辱.jpg",
+      "profile/月下只狼.jpg",
+      "profile/杀殿.png",
+      "profile/杀殿1.png",
+      "profile/杀殿头像.png",
+      "profile/杀玲.png",
+      "profile/杀生丸 (1).png",
+      "profile/杀生丸 (2).png",
+      "profile/焰灵姬.jpg",
+      "profile/焰灵姬1.jpg",
+      "profile/焰灵姬2.png",
+      "profile/牛客.jpeg,profile/犬杀.png",
+      "profile/玲.png",
+      "profile/田.jpg",
+      "profile/盗将行.jpg",
+      "profile/神乐之死 (1).png",
+      "profile/神乐之死 (2).png",
+      "profile/神乐之死 (3).png",
+      "profile/神乐之死 (4).png",
+      "profile/神乐之死 (5).png",
+      "profile/神乐之死 (6).png",
+      "profile/神乐之死.gif",
+      "profile/竖.png",
+      "profile/竖1.png",
+      "profile/简书.png",
+      "profile/网盘小号.jpeg,profile/花木兰.png",
+      "profile/苏苏.jpg",
+      "profile/蓉蓉睁眼.png",
+      "profile/镖人.png",
+      "wallpaper/焰灵姬.png",
+      "img/123456.jpg",
+      "img/201312-1.png",
+      "img/@Entity.png",
+      "img/AWT对话框.png",
+      "img/AWT文本对话框.png",
+      "img/Base64.png",
+      "img/BookManager主界面.gif",
+      "img/BookManager代码行数统计.png",
+      "img/BookManager图书添加.gif",
+      "img/BookManager图书类别.gif",
+      "img/BookManager数据库连接.gif",
+      "img/BookManager登录.gif",
+      "img/BookManager类别添加.gif",
+      "img/BufferedReader.png",
+      "img/CDM.png",
+      "img/Callable.png",
+      "img/CharSequence.png",
+      "img/Cisco界面.png",
+      "img/Collection.png",
+      "img/DoubleSummaryStatistics.png",
+      "img/FileReader.png",
+      "img/FileWriter.png",
+      "img/Flex.png",
+      "img/Flex页面布局.png",
+      "img/Float页面布局.png",
+      "img/GitLen.png",
+      "img/HTTP对资源的操作.png",
+      "img/IPconfig.png",
+      "img/InputStream.png",
+      "img/JVM线程.png",
+      "img/Map.png",
+      "img/Math类全部方法.png",
+      "img/Optional.png",
+      "img/OutputStream.png",
+      "img/PC交换机.png",
+      "img/PC接口.png",
+      "img/PDM.png",
+      "img/PDU.png",
+      "img/PDU效果.png",
+      "img/QQ.png",
+      "img/Reader.png",
+      "img/RenameMusic.gif",
+      "img/Requests库主要方法.png",
+      "img/Response对象的属性.png",
+      "img/Runtime.png",
+      "img/Scrapy框架.png",
+      "img/Set.png",
+      "img/Socket.png",
+      "img/Stack.png",
+      "img/TIM截图20200330175150.png",
+      "img/Thread.png",
+      "img/Writer.png",
+      "img/Zzo简化版.png",
+      "img/aliyuncloudkit.png",
+      "img/appchild.png",
+      "img/bookDao.png",
+      "img/cisco登录.png",
+      "img/className.png",
+      "img/datewaka.png",
+      "img/dva319.jpg",
+      "img/gcsdn.png",
+      "img/getattr.png",
+      "img/getbyid.png",
+      "img/getbyname.png",
+      "img/getbytagname.png",
+      "img/ggitee.png",
+      "img/g简书.png",
+      "img/hamburg.png",
+      "img/idewaka.png",
+      "img/innerHTML.png",
+      "img/insertbefore.png",
+      "img/java-version.png",
+      "img/java1.8String.png",
+      "img/java1.9string.png",
+      "img/java关键字.png",
+      "img/js.png",
+      "img/jsstyle.png",
+      "img/langwaka.png",
+      "img/leetcode.png",
+      "img/m10c.gif",
+      "img/m10c.png",
+      "img/mysqlversion.png",
+      "img/newCDM.png",
+      "img/newtable.png",
+      "img/nodeatt.png",
+      "img/py2029.png",
+      "img/regex.png",
+      "img/servlet.png",
+      "img/setAttribute.png",
+      "img/ssh.png",
+      "img/ssh路径.png",
+      "img/timewaka.png",
+      "img/toMDLink.gif",
+      "img/weizhuang.jpg",
+      "img/交换机接口.png",
+      "img/公钥文件.png",
+      "img/图标导航栏.gif",
+      "img/图片和声音.png",
+      "img/基金会第一层数据流图.png",
+      "img/基金会第二层数据流图.png",
+      "img/基金会顶层数据流图.png",
+      "img/字体样式设置.png",
+      "img/学生住宿管理.png",
+      "img/微博2.png",
+      "img/戴帽子的犬夜叉.png",
+      "img/文本样式设置.png",
+      "img/时序图协作图比较.png",
+      "img/流结构.jpg",
+      "img/电商关系图.png",
+      "img/盒模型.png",
+      "img/码云SSH.png",
+      "img/第一个AWT窗口.png",
+      "img/类加载器工作流程.png",
+      "img/输入框设置.gif",
+      "img/运行传输.png",
+      "img/顺序图和协作图的比较.png"
+    ];
+
+    var c = document.getElementsByClassName('gallery')[0]
+    for (var i = 0; i < list1.length; i++) {
+      var str = list1[i];
+      var c1 = document.createElement('a');
+      var c2 = document.createElement('img');
+      c1.setAttribute('href', str);
+      c1.setAttribute('class', 'image');
+      c2.setAttribute('src', str)
+      c1.appendChild(c2);
+      c.appendChild(c1)
+    }
+    $(".gallery").magnificPopup({
+      delegate: "a",
+      type: "image",
+      gallery: {
+        enabled: true
+      }
+    });
+  </script>
 </body>
+
 </html>
