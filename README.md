@@ -7,6 +7,7 @@
 <a href="https://blog.csdn.net/qq_42907802"><img src="https://img.shields.io/badge/CSDN-e4463b" alt="CSDN"></a>
 <a href="https://www.jianshu.com/u/651a6ee53f49"><img src="https://img.shields.io/badge/简书-ea6f5a" alt="简书"></a>
 </p>
+
 ### PicGo的安装配置
 
 1. 下载地址：https://github.com/Molunerfinn/PicGo/releases （推荐使用迅雷下载）
